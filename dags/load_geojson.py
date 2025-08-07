@@ -18,7 +18,7 @@ def load_geojson_to_postgres():
     gdf.to_postgis('event', engine, if_exists='replace', index=False, schema='public')
 
 default_args = {
-    'start_date': datetime(2023, 1, 1),
+    'start_date': datetime(2025, 1, 1),
 }
 
 with DAG(
