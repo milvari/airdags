@@ -28,7 +28,8 @@ services:
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
       AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
       AIRFLOW__WEBSERVER__ENABLE_RATE_LIMIT: "True"
-      AIRFLOW__WEBSERVER__RATELIMIT_STORAGE: "redis://redis:6379/0"
+      AIRFLOW__WEBSERVER__RATELIMIT_STORAGE_URI: "redis://redis:6379/0"
+      AIRFLOW__WEBSERVER__SECRET_KEY: TSNSAukK7Jmwx5bTH3pt_DzSs-uVvy6zTR9hXypptZM
     volumes:
       - ./dags:/opt/airflow/dags
       - ./data:/opt/airflow/data
@@ -45,6 +46,7 @@ services:
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+      AIRFLOW__WEBSERVER__SECRET_KEY: TSNSAukK7Jmwx5bTH3pt_DzSs-uVvy6zTR9hXypptZM
     volumes:
       - ./dags:/opt/airflow/dags
       - ./data:/opt/airflow/data

@@ -6,7 +6,7 @@ import sqlalchemy
 
 def load_geojson_to_postgres():
     # Path to the GeoJSON file
-    geojson_path = '/opt/airflow/data/airdags/data/Event_shape_2025-07-28T14_56_57.633Z.geojson'
+    geojson_path = '/opt/airflow/data/Event_shape_2025-07-28T14_56_57.633Z.geojson'
     # Read GeoJSON using GeoPandas
     gdf = gpd.read_file(geojson_path)
 
@@ -15,7 +15,7 @@ def load_geojson_to_postgres():
     engine = sqlalchemy.create_engine(db_url)
 
     # Write to PostgreSQL, table 'event', geometry column 'geom'
-    gdf.to_postgis('event', engine, if_exists='replace', index=False, schema='public', geometry='geom')
+    gdf.to_postgis('event', engine, if_exists='replace', index=False, schema='public')
 
 default_args = {
     'start_date': datetime(2023, 1, 1),

@@ -1,3 +1,8 @@
-docker-compose run airflow-webserver airflow db init
+docker-compose down -v
+docker-compose build
+# docker-compose run airflow-webserver airflow db init
+docker-compose run airflow-webserver airflow db migrate
 docker-compose run airflow-webserver airflow users create   --username admin   --password admin   --firstname Admin   --lastname Admin   --role Admin   --email admin@example.com
-docker-compose run airflow-webserver airflow users create   --username frolui   --password frolui   --firstname Fro   --lastname Lui   --role Admin   --email frolui@example.com
+# docker-compose run airflow-webserver airflow users create   --username frolui   --password frolui   --firstname Fro   --lastname Lui   --role Admin   --email frolui@example.com
+docker-compose up
+
