@@ -6,4 +6,5 @@ USER airflow
 
 RUN pip install geopandas psycopg2-binary sqlalchemy geoalchemy2
 RUN pip install redis 'flask-limiter[redis]'
+RUN pip install kafka-python
 
