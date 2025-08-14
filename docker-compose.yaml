@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   postgres:
-    image: postgis/postgis:16-3.4-alpine
+    build: ./db
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
@@ -31,7 +31,7 @@ services:
     restart: always
 
   airflow-webserver:
-    build: .
+    build: ./airflow
     restart: always
     depends_on:
       - postgres
@@ -51,7 +51,7 @@ services:
     command: webserver
 
   airflow-scheduler:
-    build: .
+    build: ./airflow
     restart: always
     depends_on:
       - postgres
