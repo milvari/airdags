@@ -30,6 +30,6 @@ RUN python3 -m venv /opt/pgxn \
   && apk del .build-deps \
   && rm -rf /root/.cache /var/cache/apk/*
 
-RUN psql -c "CREATE EXTENSION IF NOT EXISTS h3;"
+COPY create_h3.sql /docker-entrypoint-initdb.d/
 
 USER postgres
