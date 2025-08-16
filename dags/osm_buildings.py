@@ -41,7 +41,7 @@ with DAG(
     create_table = PostgresOperator(
         task_id="buildings_to_h3",
         postgres_conn_id="postgres_default",
-        sql="/opt/airflow/dags/buildings_to_h3.sql"
+        sql="buildings_to_h3.sql"
     )
 
     load_task >> create_table
